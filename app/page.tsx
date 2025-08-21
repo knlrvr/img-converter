@@ -82,7 +82,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-8">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-2">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-slate-800 mb-2">Image to Dot Grid Converter</h1>
@@ -136,8 +136,8 @@ export default function Home() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-slate-700 font-medium mb-1">Drop an image here or click to browse</p>
-                  <p className="text-slate-500 text-sm">Supports JPG, PNG, GIF, and other image formats</p>
+                  <p className="text-[#111] font-medium mb-1">Drop an image here or click to browse</p>
+                  <p className="text-neutral-500 text-sm">Supports JPG, PNG, GIF, and other image formats</p>
                 </div>
               </div>
             )}
@@ -154,9 +154,7 @@ export default function Home() {
               </h2>
             </div>
 
-            <div className="flex justify-center overflow-hidden">
-              <DotGrid dots={processedDots} gridSize={gridSize} />
-            </div>
+            <DotGrid dots={processedDots} gridSize={gridSize} />
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 items-center justify-end">
               <div className="flex gap-4">
@@ -207,3 +205,4 @@ export default function Home() {
     </main>
   )
 }
+

@@ -46,10 +46,33 @@ export function processImageFile(
         return
       }
 
-      canvas.width = gridSize.width
-      canvas.height = gridSize.height
+      const imgAspectRatio = img.width / img.height
+      const gridAspectRatio = gridSize.width / gridSize.height
 
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+      const canvasWidth = gridSize.width
+      const canvasHeight = gridSize.height
+      let drawWidth = canvasWidth
+      let drawHeight = canvasHeight
+      let offsetX = 0
+      let offsetY = 0
+
+      // If image is wider than grid ratio, fit by height
+      if (imgAspectRatio > gridAspectRatio) {
+        drawWidth = canvasHeight * imgAspectRatio
+        offsetX = (canvasWidth - drawWidth) / 2
+      }
+      // If image is taller than grid ratio, fit by width
+      else if (imgAspectRatio < gridAspectRatio) {
+        drawHeight = canvasWidth / imgAspectRatio
+        offsetY = (canvasHeight - drawHeight) / 2
+      }
+
+      canvas.width = canvasWidth
+      canvas.height = canvasHeight
+
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight)
+
+      ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight)
       const data = ctx.getImageData(0, 0, canvas.width, canvas.height)
       resolve(data)
     }
@@ -58,3 +81,4 @@ export function processImageFile(
     img.src = URL.createObjectURL(file)
   })
 }
+

@@ -4,12 +4,14 @@ export interface GridSize {
 }
 
 export const GRID_SIZE_OPTIONS = [
-  { label: "Small Square (16 × 16)", width: 16, height: 16 },
-  { label: "Small Wide (32 × 16)", width: 32, height: 16 },
-  { label: "Medium Square (32 × 32)", width: 32, height: 32 },
-  { label: "Medium Wide (64 × 32)", width: 64, height: 32 },
-  { label: "Large Square (64 × 64)", width: 64, height: 64 },
-  { label: "Large Wide (128 × 64)", width: 128, height: 64 },
+  { label: "Small Square (8 × 8)", width: 8, height: 8 },
+  { label: "Small Wide (16 × 8)", width: 16, height: 8 },
+  { label: "Medium Square (16 × 16)", width: 16, height: 16 },
+  { label: "Medium Wide (32 × 16)", width: 32, height: 16 },
+  { label: "Large Square (32 × 32)", width: 32, height: 32 },
+  { label: "Large Wide (64 × 32)", width: 64, height: 32 },
+  { label: "XL Square (64 x 64)", width: 64, height: 64},
+  { label: "XL Wide (128 x 64)", width: 128, height: 64}
 ]
 
 export function getDotSize(gridSize: GridSize): number {
